@@ -1,7 +1,6 @@
-
 :root {
-	font-family: 'Helvetica Neue', sans-seace;
-	--pure-white: #e1e1e1;	
+	font-family: 'Sora', 'Helvetica Neue', sans-seace;
+	--pure-white: #e1e1e1;
 	--primary-color: #b9c6d2;
 	--secondary-color: #d0dde9;
 	--tertiary-color: #edf0f8;
@@ -17,6 +16,7 @@ body {
 	min-height: 100vh;
 	margin: 0;
 	background: var(--pure-white);
+	font-weight: 450;
 }
 
 body::before {
@@ -39,8 +39,12 @@ body::before {
 h1,
 h2,
 p {
-	font-weight: 400;
 	color: var(--heading-color);
+}
+
+h1,
+h2 {
+  font-weight: 600;
 }
 
 p {
