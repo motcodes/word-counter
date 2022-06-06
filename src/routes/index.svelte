@@ -1,9 +1,14 @@
-<script context="module" lang="ts">
+<script context="module">
 	export const prerender = true;
 </script>
 
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+<script>
+	let textValue = "";
+
+   const countWords = () => textValue.split(' ').length;
+   console.log(countWords());
+    
+	let counterValue = countWords() || 0;
 </script>
 
 <svelte:head>
@@ -11,22 +16,9 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+	<h1>Word Counter</h1>
+	<p>{counterValue}</p>
+	<textarea bind:value={textValue} on:change={countWords} id="wordCounter" name="wordCounter" rows="20" cols="50"/>
 </section>
 
 <style>
@@ -42,18 +34,4 @@
 		width: 100%;
 	}
 
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
 </style>
